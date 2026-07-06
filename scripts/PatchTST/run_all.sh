@@ -11,11 +11,13 @@ scripts=(
     "scripts/PatchTST/rr/etth1.sh"
     "scripts/PatchTST/rr/etth2.sh"
     "scripts/PatchTST/rr/weather.sh"
+    "scripts/PatchTST/rr/electricity.sh"
+    "scripts/PatchTST/rr/traffic.sh"
 )
 
 w_diff_params="1e-3 0.01 0.1 1.0 5.0"
 
-echo "Launching DeltaTSF grid search on GPUs ${START_GPU}-${END_GPU}."
+echo "Launching DeltaTSF CES grid search on GPUs ${START_GPU}-${END_GPU}."
 echo "Set START_GPU, END_GPU, MAX_PARALLEL, or edit w_diff_params as needed."
 echo "------------------------------------------------"
 

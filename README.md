@@ -29,22 +29,23 @@ Prepare the datasets under the path used by the scripts, then run:
 bash run_best.sh
 ```
 
-Individual main-setting dataset scripts live in:
+The CES scripts in `scripts/PatchTST/rr/` correspond to the paper's DeltaTSF
+structure and are used by `run_best.sh` and `scripts/PatchTST/run_all.sh`.
 
 ```text
-scripts/PatchTST/main/
+scripts/PatchTST/rr/
 ```
 
 For example:
 
 ```bash
-bash scripts/PatchTST/main/etth1.sh 5
+bash scripts/PatchTST/rr/etth1.sh 5
 ```
 
-Grid-search / rand-replacement variants live in:
+The full raw + difference channel scripts without CES are kept for ablation in:
 
 ```text
-scripts/PatchTST/rr/
+scripts/PatchTST/main/
 ```
 
 Both `run_best.sh` and `scripts/PatchTST/run_all.sh` use the shared GPU

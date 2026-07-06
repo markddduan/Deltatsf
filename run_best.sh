@@ -6,16 +6,16 @@ source scripts/PatchTST/launcher.sh
 trap cleanup_jobs SIGINT SIGTERM
 
 tasks=(
-    "scripts/PatchTST/main/etth1.sh|5"
-    "scripts/PatchTST/main/etth2.sh|5"
-    "scripts/PatchTST/main/ettm1.sh|0.001"
-    "scripts/PatchTST/main/ettm2.sh|0.05"
-    "scripts/PatchTST/main/weather.sh|0.05"
-    "scripts/PatchTST/main/electricity.sh|0.01"
-    "scripts/PatchTST/main/traffic.sh|0.01"
+    "scripts/PatchTST/rr/etth1.sh|5"
+    "scripts/PatchTST/rr/etth2.sh|5"
+    "scripts/PatchTST/rr/ettm1.sh|0.001"
+    "scripts/PatchTST/rr/ettm2.sh|0.05"
+    "scripts/PatchTST/rr/weather.sh|0.05"
+    "scripts/PatchTST/rr/electricity.sh|0.01"
+    "scripts/PatchTST/rr/traffic.sh|0.01"
 )
 
-echo "Launching DeltaTSF best-setting experiments on GPUs ${START_GPU}-${END_GPU}."
+echo "Launching DeltaTSF best-setting CES experiments on GPUs ${START_GPU}-${END_GPU}."
 echo "Set START_GPU, END_GPU, or MAX_PARALLEL to override scheduling."
 echo "------------------------------------------------"
 
