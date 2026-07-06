@@ -1,28 +1,24 @@
-# ================= 1. 接收外部参数 =================
 w_diff=$1
-subset_ratio=0.1  # 接收第二个参数作为数据比例，默认为 0.1
+subset_ratio=0.1
 
 if [ -z "$w_diff" ]; then
-    w_diff=0.01  # 默认值
+    w_diff=0.01
 fi
 
-# ================= 2. 基础参数配置 =================
-seq_len=720      # 统一改为 720
+seq_len=720
 model_name=PatchTST
 root_path_name=/media/D1/temp22/dataset/
-data_path_name=traffic.csv
-model_id_name=traffic
+data_path_name=electricity.csv
+model_id_name=Electricity
 data_name=custom
 random_seed=2021
-enc_in=1724      # 原为 862，翻倍至 1724
+enc_in=642
 
-# ================= 3. 动态创建分层日志路径 =================
 save_dir="./logs/${model_id_name}/${w_diff}"
 if [ ! -d "$save_dir" ]; then
     mkdir -p "$save_dir"
 fi
 
-# ================= 4. 循环运行 4 个预测长度 =================
 for pred_len in 96 192 336 720
 do
     echo ">>>> Running ${model_id_name} | w_diff: ${w_diff} | ratio: ${subset_ratio} | pred_len: ${pred_len} <<<<"
@@ -55,8 +51,8 @@ do
       --pct_start 0.2 \
       --w_diff1 "$w_diff" \
       --subset_ratio "$subset_ratio" \
-      --itr 1 --batch_size 2 --accumulation_steps 12 --learning_rate 0.0001 \
+      --itr 1 --batch_size 4 --accumulation_steps 8 --learning_rate 0.0001 \
       --use_gpu True \
       --devices "0" \
-      > "${save_dir}/${pred_len}.log" 
+      > "${save_dir}/${pred_len}.log"
 done

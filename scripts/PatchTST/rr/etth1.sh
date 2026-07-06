@@ -1,32 +1,26 @@
-# ================= 1. 接收总控脚本传入的参数 =================
 w_diff=$1
 if [ -z "$w_diff" ]; then
-    w_diff=5.0  # 默认值
+    w_diff=5.0
 fi
 
-# ================= 2. 基础参数配置 =================
-seq_len=720      # 已改为 720
+seq_len=720
 model_name=PatchTST
 root_path_name=/media/D1/temp22/dataset/
-data_path_name=ETTh2.csv
-model_id_name=ETTh2
-data_name=ETTh2
+data_path_name=ETTh1.csv
+model_id_name=ETTh1
+data_name=ETTh1
 random_seed=2021
-enc_in=14        # 已由 7 翻倍至 14
+enc_in=14
 
-# ================= 3. 动态创建分层日志路径 =================
-# 路径格式：./logs/ETTh2/0.01/
 save_dir="./logs/${model_id_name}/${w_diff}"
 if [ ! -d "$save_dir" ]; then
     mkdir -p "$save_dir"
 fi
 
-# ================= 4. 循环运行 4 个预测长度 =================
 for pred_len in 96 192 336 720
 do
     echo ">>>> Running ${model_id_name} | w_diff: ${w_diff} | pred_len: ${pred_len} <<<<"
 
-    # 注意：此处 --devices 将配合总控脚本中的 CUDA_VISIBLE_DEVICES 使用
     python -u run_longExp.py \
       --random_seed $random_seed \
       --is_training 1 \
@@ -55,6 +49,7 @@ do
       --batch_size 128 \
       --learning_rate 0.0001 \
       --use_gpu True \
+      --devices "0" \
       --rand_replace 1 \
-      --devices "0" > "${save_dir}/${pred_len}.log" 
+      > "${save_dir}/${pred_len}.log"
 done

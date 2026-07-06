@@ -1,27 +1,22 @@
-# ================= 1. 接收总控脚本传入的参数 =================
 w_diff=$1
 if [ -z "$w_diff" ]; then
-    w_diff=0.001  # 默认值
+    w_diff=0.001
 fi
 
-# ================= 2. 基础参数配置 =================
-seq_len=720      # 已改为 720
+seq_len=720
 model_name=PatchTST
 root_path_name=/media/D1/temp22/dataset/
 data_path_name=ETTm1.csv
 model_id_name=ETTm1
 data_name=ETTm1
 random_seed=2021
-enc_in=14        # 已由 7 翻倍至 14
+enc_in=14
 
-# ================= 3. 动态创建分层日志路径 =================
-# 路径格式：./logs/ETTm1/0.01/
 save_dir="./logs_720/${model_id_name}/${w_diff}"
 if [ ! -d "$save_dir" ]; then
     mkdir -p "$save_dir"
 fi
 
-# ================= 4. 循环运行 4 个预测长度 =================
 for pred_len in 96 192 336 720
 do
     echo ">>>> Running ${model_id_name} | w_diff: ${w_diff} | pred_len: ${pred_len} <<<<"
@@ -57,9 +52,5 @@ do
       --use_gpu True \
       --devices "0" \
       --rand_replace 1 \
-      > "${save_dir}/${pred_len}.log" 
+      > "${save_dir}/${pred_len}.log"
 done
-
-
-  
-   

@@ -1,28 +1,25 @@
-# ================= 1. 接收总控脚本传入的参数 =================
 w_diff=$1
 if [ -z "$w_diff" ]; then
-    w_diff=0.05  # 默认值
+    w_diff=0.05
 fi
 
-# ================= 2. 基础参数配置 =================
-seq_len=720      # 已统一改为 720
+seq_len=720
 model_name=PatchTST
 root_path_name=/media/D1/temp22/dataset/
-data_path_name=ETTm2.csv
-model_id_name=ETTm2
-data_name=ETTm2
+data_path_name=weather.csv
+model_id_name=weather
+data_name=custom
 random_seed=2021
-enc_in=14        # 已由 7 翻倍至 14
+enc_in=42
 
-# ================= 3. 动态创建分层日志路径 =================
-# 最终路径结构示例：./logs/ETTm2/0.09/96.log
-save_dir="./logs_720/${model_id_name}/${w_diff}"
+save_dir="./logs/${model_id_name}/${w_diff}"
 if [ ! -d "$save_dir" ]; then
     mkdir -p "$save_dir"
 fi
 
-# ================= 4. 循环运行 4 个预测长度 =================
 for pred_len in 96 192 336 720
+#for pred_len in 336 720
+
 do
     echo ">>>> Running ${model_id_name} | w_diff: ${w_diff} | pred_len: ${pred_len} <<<<"
 
@@ -48,17 +45,15 @@ do
       --patch_len 16 \
       --stride 8 \
       --des 'Exp' \
-      --train_epochs 50 \
-      --patience 5 \
-      --lradj 'TST' \
-      --pct_start 0.4 \
+      --train_epochs 100 \
+      --patience 20 \
       --w_diff1 "$w_diff" \
       --itr 1 \
-      --batch_size 128 \
+      --batch_size 32 \
+      --accumulation_steps 4 \
       --learning_rate 0.0001 \
       --use_gpu True \
       --devices "0" \
       --rand_replace 1 \
-      > "${save_dir}/${pred_len}.log" 
+      > "${save_dir}/${pred_len}.log"
 done
-

@@ -29,16 +29,29 @@ Prepare the datasets under the path used by the scripts, then run:
 bash run_best.sh
 ```
 
-Individual dataset scripts live in:
+Individual main-setting dataset scripts live in:
 
 ```text
-scripts/PatchTST/
+scripts/PatchTST/main/
 ```
 
 For example:
 
 ```bash
-bash scripts/PatchTST/etth1.sh 5
+bash scripts/PatchTST/main/etth1.sh 5
+```
+
+Grid-search / rand-replacement variants live in:
+
+```text
+scripts/PatchTST/rr/
+```
+
+Both `run_best.sh` and `scripts/PatchTST/run_all.sh` use the shared GPU
+launcher in `scripts/PatchTST/launcher.sh`. You can control scheduling with:
+
+```bash
+START_GPU=0 END_GPU=7 MAX_PARALLEL=8 bash run_best.sh
 ```
 
 ## Notes
