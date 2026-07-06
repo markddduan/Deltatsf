@@ -55,6 +55,18 @@ launcher in `scripts/PatchTST/launcher.sh`. You can control scheduling with:
 START_GPU=0 END_GPU=7 MAX_PARALLEL=8 bash run_best.sh
 ```
 
+## Backbone Integrations
+
+Additional DeltaTSF + CES integration files for iTransformer, TimeMixer, and
+TimesNet are provided in:
+
+```text
+integrations/
+```
+
+These folders contain only the key files that should be copied into the
+corresponding upstream backbone repositories. They are not full forks.
+
 ## Notes
 
 The repository intentionally excludes checkpoints, logs, generated results, and
