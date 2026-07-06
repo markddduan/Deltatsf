@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Environments
+.venv/
+venv/
+env/
+miniconda3/
+Miniconda3-*.sh
+
+# Experiment outputs
+checkpoints/
+results/
+test_results/
+logs/
+logs_*/
+all_logs/
+wandb/
+outputs/
+*.log
+*.out
+*.pid
+*.pth
+*.pt
+*.ckpt
+*.npy
+
+# Local analysis artifacts
+*.png
+*.pdf
+result.txt
+*_summary.csv
+tuning_master_result.csv
+
+# System/editor files
+.DS_Store
+.idea/
+.vscode/
