@@ -1,0 +1,72 @@
+\begin{table*}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\caption{Long-term multivariate forecasting results. The table reports MSE and MAE for different forecasting lengths $T \in \{96,192,336,720\}$. The input sequence length is fixed to 720 for all methods. Better results under the $+ delta$ setting are highlighted in bold. The results of the baseline models are directly obtained from PhaseFormer~\cite{khan2025phaseformer} and TimeBase~\cite{huangtimebase}.}
+
+\label{tab:long_term_results_no_horizon}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccccccccccc}
+\toprule
+\multirow{3}{*}{Dataset}
+& \multicolumn{4}{c}{PatchTST}
+& \multicolumn{4}{c}{iTransformer}
+& \multicolumn{4}{c}{TimeMixer}
+& \multicolumn{4}{c}{TimesNet} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}\cmidrule(lr){14-17}
+& \multicolumn{2}{c}{ori} & \multicolumn{2}{c}{$+Delta$}
+& \multicolumn{2}{c}{ori} & \multicolumn{2}{c}{$+Delta$}
+& \multicolumn{2}{c}{ori} & \multicolumn{2}{c}{$+Delta$}
+& \multicolumn{2}{c}{ori} & \multicolumn{2}{c}{$+Delta$} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+\cmidrule(lr){10-11}\cmidrule(lr){12-13}
+\cmidrule(lr){14-15}\cmidrule(lr){16-17}
+& MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE & MSE & MAE \\
+\midrule
+
+ETTh1-96  & 0.377 & 0.408 & \textbf{0.362} & \textbf{0.395} & 0.389 & 0.421 & \textbf{0.373} & \textbf{0.406} & 0.410 & 0.441 & \textbf{0.391} & \textbf{0.420} & 0.437 & 0.454 & \textbf{0.401} & \textbf{0.433} \\
+ETTh1-192 & 0.413 & 0.431 & \textbf{0.396} & \textbf{0.416} & 0.424 & 0.446 & \textbf{0.409} & \textbf{0.431} & 0.448 & 0.465 & \textbf{0.415} & \textbf{0.431} & 0.454 & 0.469 & \textbf{0.425} & \textbf{0.453} \\
+ETTh1-336 & 0.436 & 0.446 & \textbf{0.405} & \textbf{0.424} & 0.456 & 0.469 & \textbf{0.423} & \textbf{0.440} & 0.482 & 0.490 & \textbf{0.426} & \textbf{0.440} & 0.494 & 0.494 & \textbf{0.466} & \textbf{0.487} \\
+ETTh1-720 & 0.455 & 0.475 & \textbf{0.420} & \textbf{0.448} & 0.545 & 0.532 & \textbf{0.486} & \textbf{0.505} & 0.475 & 0.500 & \textbf{0.450} & \textbf{0.468} & 0.632 & 0.578 & \textbf{0.485} & \textbf{0.502} \\
+ETTh1-AVG & 0.420 & 0.440 & \textbf{0.396} & \textbf{0.421} & 0.454 & 0.467 & \textbf{0.423} & \textbf{0.446} & 0.454 & 0.474 & \textbf{0.421} & \textbf{0.440} & 0.504 & 0.499 & \textbf{0.444} & \textbf{0.469} \\
+\midrule
+
+ETTh2-96  & 0.276 & 0.339 & \textbf{0.269} & \textbf{0.333} & 0.305 & 0.361 & \textbf{0.285} & \textbf{0.345} & 0.315 & 0.380 & \textbf{0.297} & \textbf{0.356} & 0.349 & 0.403 & \textbf{0.315} & \textbf{0.358} \\
+ETTh2-192 & 0.342 & 0.385 & \textbf{0.330} & \textbf{0.375} & 0.405 & 0.421 & \textbf{0.389} & \textbf{0.411} & 0.383 & 0.415 & \textbf{0.360} & \textbf{0.395} & 0.500 & 0.488 & \textbf{0.388} & \textbf{0.400} \\
+ETTh2-336 & 0.364 & 0.405 & \textbf{0.316} & \textbf{0.377} & 0.411 & 0.436 & \textbf{0.407} & \textbf{0.432} & 0.385 & 0.438 & \textbf{0.340} & \textbf{0.394} & 0.445 & 0.465 & \textbf{0.442} & \textbf{0.446} \\
+ETTh2-720 & 0.395 & 0.434 & \textbf{0.368} & \textbf{0.417} & 0.448 & 0.470 & \textbf{0.410} & \textbf{0.448} & 0.432 & 0.471 & \textbf{0.397} & \textbf{0.436} & 0.438 & 0.465 & \textbf{0.439} & \textbf{0.452} \\
+ETTh2-AVG & 0.344 & 0.391 & \textbf{0.321} & \textbf{0.376} & 0.392 & 0.422 & \textbf{0.373} & \textbf{0.409} & 0.379 & 0.426 & \textbf{0.349} & \textbf{0.395} & 0.433 & 0.455 & \textbf{0.396} & \textbf{0.414} \\
+\midrule
+
+ETTm1-96  & 0.298 & 0.352 & {0.299} & {0.352} & 0.315 & 0.369 & \textbf{0.310} & \textbf{0.363} & 0.332 & 0.384 & \textbf{0.306} & \textbf{0.358} & 0.359 & 0.391 & \textbf{0.313} & \textbf{0.362} \\
+ETTm1-192 & 0.335 & 0.373 & \textbf{0.327} & \textbf{0.370} & 0.349 & 0.388 & \textbf{0.349} & \textbf{0.389} & 0.355 & 0.398 & \textbf{0.340} & \textbf{0.374} & 0.368 & 0.398 & \textbf{0.346} & \textbf{0.383} \\
+ETTm1-336 & 0.366 & 0.394 & \textbf{0.354} & \textbf{0.390} & 0.381 & 0.409 & \textbf{0.378} & \textbf{0.406} & 0.386 & 0.416 & \textbf{0.366} & \textbf{0.389} & 0.429 & 0.438 & \textbf{0.378} & \textbf{0.400} \\
+ETTm1-720 & 0.420 & 0.421 & \textbf{0.401} & \textbf{0.418} & 0.437 & 0.439 & \textbf{0.431} & \textbf{0.434} & 0.452 & 0.457 & \textbf{0.426} & \textbf{0.425} & 0.477 & 0.474 & \textbf{0.449} & \textbf{0.440} \\
+ETTm1-AVG & 0.355 & 0.385 & \textbf{0.345} & \textbf{0.383} & 0.371 & 0.401 & \textbf{0.367} & \textbf{0.398} & 0.381 & 0.414 & \textbf{0.360} & \textbf{0.387} & 0.408 & 0.425 & \textbf{0.372} & \textbf{0.396} \\
+\midrule
+
+ETTm2-96  & 0.165 & 0.260 & \textbf{0.163} & \textbf{0.253} & 0.179 & 0.274 & \textbf{0.174} & \textbf{0.265} & 0.192 & 0.285 & \textbf{0.173} & \textbf{0.256} & 0.200 & 0.288 & \textbf{0.181} & \textbf{0.274} \\
+ETTm2-192 & 0.219 & 0.298 & \textbf{0.221} & \textbf{0.297} & 0.239 & 0.314 & \textbf{0.240} & \textbf{0.308} & 0.253 & 0.329 & \textbf{0.237} & \textbf{0.297} & 0.274 & 0.337 & \textbf{0.250} & \textbf{0.316} \\
+ETTm2-336 & 0.268 & 0.333 & \textbf{0.269} & \textbf{0.327} & 0.309 & 0.356 & \textbf{0.293} & \textbf{0.347} & 0.307 & 0.362 & \textbf{0.294} & \textbf{0.335} & 0.340 & 0.382 & \textbf{0.289} & \textbf{0.340} \\
+ETTm2-720 & 0.352 & 0.386 & \textbf{0.347} & \textbf{0.378} & 0.387 & 0.407 & \textbf{0.364} & \textbf{0.391} & 0.380 & 0.412 & \textbf{0.390} & \textbf{0.393} & 0.384 & 0.407 & \textbf{0.380} & \textbf{0.399} \\
+ETTm2-AVG & 0.251 & 0.319 & \textbf{0.250} & \textbf{0.314} & 0.279 & 0.338 & \textbf{0.268} & \textbf{0.328} & 0.283 & 0.347 & \textbf{0.274} & \textbf{0.320} & 0.300 & 0.354 & \textbf{0.275} & \textbf{0.332} \\
+\midrule
+
+Weather-96  & 0.149 & 0.199 & \textbf{0.146} & \textbf{0.197} & 0.159 & 0.212 & {0.166} & {0.221} & 0.163 & 0.223 & \textbf{0.153} & \textbf{0.208} & 0.176 & 0.234 & \textbf{0.176} & \textbf{0.233} \\
+Weather-192 & 0.193 & 0.243 & \textbf{0.191} & \textbf{0.242} & 0.203 & 0.252 & {0.227} & {0.256} & 0.201 & 0.254 & \textbf{0.199} & \textbf{0.249} & 0.219 & 0.270 & {0.220} & {0.271} \\
+Weather-336 & 0.240 & 0.281 & \textbf{0.241} & \textbf{0.280} & 0.253 & 0.291 & {0.254} & {0.292} & 0.258 & 0.300 & \textbf{0.253} & \textbf{0.293} & 0.277 & 0.311 & \textbf{0.260} & \textbf{0.295} \\
+Weather-720 & 0.312 & 0.334 & \textbf{0.305} & \textbf{0.328} & 0.317 & 0.337 & {0.322} & {0.344} & 0.329 & 0.348 & \textbf{0.330} & \textbf{0.348} & 0.344 & 0.356 & \textbf{0.319} & \textbf{0.341} \\
+Weather-AVG & 0.224 & 0.264 & \textbf{0.221} & \textbf{0.262} & 0.233 & 0.273 & {0.242} & {0.278} & 0.238 & 0.281 & \textbf{0.234} & \textbf{0.275} & 0.254 & 0.293 & \textbf{0.244} & \textbf{0.285} \\
+\midrule
+
+Electricity-96  & 0.141 & 0.240 & \textbf{0.130} & \textbf{0.225} & 0.135 & 0.233 & \textbf{0.131} & \textbf{0.228} & 0.139 & 0.239 & \textbf{0.131} & \textbf{0.226} & 0.202 & 0.308 & \textbf{0.180} & \textbf{0.283} \\
+Electricity-192 & 0.156 & 0.256 & \textbf{0.147} & \textbf{0.241} & 0.155 & 0.253 & \textbf{0.153} & \textbf{0.250} & 0.155 & 0.250 & \textbf{0.149} & \textbf{0.243} & 0.218 & 0.322 & \textbf{0.187} & \textbf{0.292} \\
+Electricity-336 & 0.172 & 0.267 & \textbf{0.161} & \textbf{0.256} & 0.169 & 0.267 & \textbf{0.168} & \textbf{0.265} & 0.171 & 0.265 & \textbf{0.164} & \textbf{0.258} & 0.232 & 0.332 & \textbf{0.211} & \textbf{0.311} \\
+Electricity-720 & 0.208 & 0.299 & \textbf{0.195} & \textbf{0.288} & 0.204 & 0.301 & \textbf{0.189} & \textbf{0.284} & 0.208 & 0.300 & \textbf{0.200} & \textbf{0.293} & 0.299 & 0.375 & \textbf{0.244} & \textbf{0.335} \\
+Electricity-AVG & 0.169 & 0.266 & \textbf{0.158} & \textbf{0.253} & 0.166 & 0.264 & \textbf{0.160} & \textbf{0.257} & 0.168 & 0.264 & \textbf{0.161} & \textbf{0.255} & 0.238 & 0.334 & \textbf{0.206} & \textbf{0.305} \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
